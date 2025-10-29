@@ -1,0 +1,64 @@
+
+<!doctype html>
+<html lang="es">
+<head>
+
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<link rel="stylesheet" href="styles.css"/>
+<title>Stats Challenges — Advanced Exercises</title>
+<!-- MathJax for LaTeX rendering -->
+<script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+</head>
+<body>
+<header>
+  <nav>
+    <a href="index.html">Inicio</a>
+    <a href="exercises.html">Ejercicios</a>
+    <a href="solutions.html">Soluciones</a>
+  </nav>
+</header>
+<div class="container">
+  <h1>Soluciones y Pistas</h1>
+  <div class="card"><h3>S1 · CLT con triangular</h3>
+<p><strong>Q1 Solución.</strong> Para triangular: \\(\\mu=(a+m+b)/3=500\\); 
+\\(\\sigma^2=\\frac{a^2+b^2+m^2-ab-am-bm}{18}=2400\\Rightarrow \\sigma=49.\\)
+Con CLT, \\(\\bar X\\sim \\mathcal N(500,(\\sigma/\\sqrt{64})^2)\\) y
+\\(P(495\\le\\bar X\\le 505)=0.5858.\\)</p>
+<p><strong>Excel</strong>: <code>=NORM.DIST(505;500;SQRT(2400.0)/SQRT(64);TRUE) - NORM.DIST(495;500;SQRT(2400.0)/SQRT(64);TRUE)</code>.</p>
+</div><div class="card"><h3>S2 · Estimadores</h3>
+<p><strong>Q2 Solución.</strong> Insesgo: \\(E[\\hat\\mu_1]=(3\\mu-\\mu)/2=\\mu\\), \\(E[\\hat\\mu_2]=\\mu\\).<br/>
+Varianzas: \\(\\operatorname{Var}(\\hat\\mu_1)=(3/2)^2\\sigma^2+(-1/2)^2\\sigma^2=\\tfrac{5}{2}\\sigma^2\\);
+\\(\\operatorname{Var}(\\hat\\mu_2)=\\sigma^2/6\\). Gana \\(\\hat\\mu_2\\).</p>
+</div><div class="card"><h3>S3 · Suma total</h3>
+<p><strong>Q3 Solución.</strong> \\(S\\sim \\mathcal N(3240,37.947^2)\\). \\(z=1.581\\Rightarrow P(S>3300)=0.0569.\\)</p>
+<p><strong>Excel</strong>: <code>=1 - NORM.DIST(3300; 90*36; SQRT(90)*4; TRUE)</code>.</p>
+</div><div class="card"><h3>S4 · Condicional</h3>
+<p><strong>Q4 Solución.</strong> Denominador (columna Y=4): 0.27. Numerador X∈{3,4}: 0.04. Probabilidad = 0.148.</p>
+</div><div class="card"><h3>S5 · Mezcla</h3>
+<p><strong>Q5 Solución.</strong> \\(E[Y]=533.00\\). 
+\\(\\operatorname{Var}(Y)=60176.00\\).</p>
+<p><strong>Excel</strong>: media <code>=SUMPRODUCT(p;mean)</code>, var <code>=SUMPRODUCT(p;var) + SUMPRODUCT(p;mean^2) - (SUMPRODUCT(p;mean))^2</code>.</p>
+</div><div class="card"><h3>S6 · Correlación</h3>
+<p><strong>Q6 Solución.</strong> \\(k=2/9\\). \\(\\mu_X=1.5\\), \\(\\mu_Y=2.25\\). 
+\\(\\sigma_X^2=0.45\\), \\(\\sigma_Y^2=0.3375\\). \\(E[XY]=3.6\\Rightarrow \\operatorname{Cov}=0.225\\). 
+\\(\\rho=0.5774\\).</p>
+</div><div class="card"><h3>S7 · MLE</h3>
+<p><strong>Q7 Solución.</strong> \\(L(\\theta)=\\theta^n e^{-\\theta\\sum (x_i-5)}\\) ⇒ 
+\\(\\hat\\theta=n / \\sum (x_i-5)\\).
+Si \\(\\tau\\) desconocido, la verosimilitud aumenta con \\(\\tau\\) hasta \\(\\min x_i\\), por lo que \\(\\hat\\tau=\\min x_i\\).</p>
+</div><div class="card"><h3>S8 · Intervalo t</h3>
+<p><strong>Q8 Solución.</strong> \\(IC: \\bar x \\pm t_{0.975,17}\\, s/\\sqrt{18}\\). Con \\(t\\approx 2.11\\), margen = 1.940.<br/>
+IC = \\([12.8-1.940,\\ 12.8+1.940]\\) = \\([10.860,\\ 14.740]\\).</p>
+<p><strong>Excel</strong>: <code>=T.INV.2T(0,05;17)*3,9/SQRT(18)</code>.</p>
+</div><div class="card"><h3>S9 · Proporciones</h3>
+<p><strong>Q9 Solución.</strong> \\(\\hat p={(x_A+x_B)/(n_A+n_B)}=0.0827\\). 
+\\(z=-1.970\\Rightarrow p\\text{-value}=0.0488\\). Decisión al 5%: rechazamos \\(H_0\\).</p>
+</div><div class="card"><h3>S10 · Bayes PPV</h3>
+<p><strong>Q10 Solución.</strong> PPV = 0.2594.</p>
+</div>
+  <footer>Verifica aritmética y supuestos (i.i.d., normalidad, tamaños muestrales, etc.).</footer>
+</div>
+</body>
+</html>

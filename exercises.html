@@ -1,0 +1,89 @@
+
+<!doctype html>
+<html lang="es">
+<head>
+
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<link rel="stylesheet" href="styles.css"/>
+<title>Stats Challenges — Advanced Exercises</title>
+<!-- MathJax for LaTeX rendering -->
+<script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+</head>
+<body>
+<header>
+  <nav>
+    <a href="index.html">Inicio</a>
+    <a href="exercises.html">Ejercicios</a>
+    <a href="solutions.html">Soluciones</a>
+  </nav>
+</header>
+<div class="container">
+  <h1>Ejercicios</h1>
+  <div class="card"><a id="q1"></a><h3>Q1 · Media muestral con CLT</h3><img src="assets/triangular_pdf.png" alt="Q1 · Media muestral con CLT"/>
+<p><strong>Q1 (CLT con parent triangular).</strong> El peso de una caja sigue una distribución triangular con parámetros \(a=380\), \(m=500\), \(b=620\) (ver figura). Se toma una muestra de \(n=64\) cajas y se calcula la media \(\bar X\). Aproxima con CLT:</p>
+<ol>
+  <li>Calcula \(\mu\) y \(\sigma\) de la triangular.</li>
+  <li>Evalúa \(P(495\le \bar X \le 505)\).</li>
+</ol>
+<p><em>Trampa:</em> recuerda que la DE de \(\bar X\) es \(\sigma/\sqrt{n}\) y que la triangular no es normal.</p>
+</div><div class="card"><a id="q2"></a><h3>Q2 · Insesgo y varianzas</h3>
+<p><strong>Q2 (Estimadores en competencia).</strong> Para una población con media \(\mu\) y varianza \(\sigma^2\), a partir de una muestra i.i.d. de tamaño \(n=6\), considera:</p>
+<p>\[ \hat\mu_1=\frac{3X_1-X_2}{2},\qquad \hat\mu_2=\bar X=\frac{1}{6}\sum_{i=1}^6 X_i. \]</p>
+<ol>
+  <li>Demuestra si son insesgados.</li>
+  <li>Compara \(\operatorname{Var}(\hat\mu_1)\) vs \(\operatorname{Var}(\hat\mu_2)\).</li>
+</ol>
+<p><em>Trampa:</em> \(\bar X\) usa seis observaciones distintas.</p>
+</div><div class="card"><a id="q3"></a><h3>Q3 · Suma de 90 recorridos</h3><img src="assets/series_trucks.png" alt="Q3 · Suma de 90 recorridos"/>
+<p><strong>Q3 (Suma total de recorridos).</strong> La distancia diaria de un camión es \(X\sim\mathcal N(36,4^2)\). Para 90 camiones en un día, sea \(S=\sum_{i=1}^{90}X_i\).</p>
+<ol>
+  <li>Calcula \(P(S>3300)\).</li>
+  <li>Interpreta el resultado en kilómetros.</li>
+</ol>
+<p><em>Trampa:</em> trabajas con la distribución de \(S\), no de \(\bar X\).</p>
+</div><div class="card"><a id="q4"></a><h3>Q4 · Probabilidad condicional en tabla</h3>
+<p><strong>Q4 (Condicional).</strong> Con la función de probabilidad conjunta \(p_{X,Y}(x,y)\) dada en la tabla:</p>
+
+<table border="1" cellspacing="0" cellpadding="6">
+<tr><th>X (semanas)</th><th>Y=4</th><th>Y=5</th><th>Y=6</th><th>Y=7</th></tr>
+<tr><td>1</td><td>0.14</td><td>0.11</td><td>0.03</td><td>0.05</td></tr>
+<tr><td>2</td><td>0.09</td><td>0.09</td><td>0.04</td><td>0.09</td></tr>
+<tr><td>3</td><td>0.02</td><td>0.04</td><td>0.02</td><td>0.06</td></tr>
+<tr><td>4</td><td>0.02</td><td>0.05</td><td>0.05</td><td>0.08</td></tr>
+</table>
+
+<p>Sabiendo que el proyecto terminó en \(Y=4\) meses, calcula \(P( X\in\{3,4\}\mid Y=4)\).</p>
+<p><em>Trampa:</em> divide dentro de la columna correcta.</p>
+</div><div class="card"><a id="q5"></a><h3>Q5 · Mezcla y varianza total</h3>
+<p><strong>Q5 (Mezcla con varianzas).</strong> El rendimiento (kg/ha) depende del régimen térmico \(R\in\{A,B,C\}\) con \(P(A)=0.55\), \(P(B)=0.35\), \(P(C)=0.10\). Condicionalmente:</p>
+<ul>
+<li>\(E[Y\mid A]=420\), \(\operatorname{Var}(Y\mid A)=80^2\)</li>
+<li>\(E[Y\mid B]=520\), \(\operatorname{Var}(Y\mid B)=90^2\)</li>
+<li>\(E[Y\mid C]=1200\), \(\operatorname{Var}(Y\mid C)=150^2\)</li>
+</ul>
+<ol>
+  <li>Halla \(E[Y]\).</li>
+  <li>Halla \(\operatorname{Var}(Y)\) usando la ley de la varianza total.</li>
+</ol>
+</div><div class="card"><a id="q6"></a><h3>Q6 · Correlación con pdf conjunto</h3><img src="assets/bivariate_support.png" alt="Q6 · Correlación con pdf conjunto"/>
+<p><strong>Q6 (Correlación exacta).</strong> Sea \(f_{X,Y}(x,y)=k\,x\) para \(0\le x\le y\le 3\) y 0 en otro caso. Encuentra \(k\), los momentos de primer y segundo orden y \(\rho=\operatorname{Corr}(X,Y)\).</p>
+<p><em>Trampa:</em> integra sobre la región triangular (ver figura).</p>
+</div><div class="card"><a id="q7"></a><h3>Q7 · Máxima verosimilitud</h3>
+<p><strong>Q7 (MLE con desplazamiento).</strong> Para \(x\ge 5\), \(f(x\mid\theta)=\theta\,e^{-\theta(x-5)}\) con \(\theta>0\). Dados datos i.i.d. \(x_1,\ldots,x_n\):</p>
+<ol>
+  <li>Deriva el MLE de \(\theta\).</li>
+  <li>(Extra) Si el umbral 5 fuera también desconocido \(\tau\), muestra que \(\hat\tau=\min x_i\).</li>
+</ol>
+</div><div class="card"><a id="q8"></a><h3>Q8 · Intervalo t para la media</h3>
+<p><strong>Q8 (IC t no trivial).</strong> Muestra de tamaño \(n=18\) de una población Normal dio \(\bar x=12.8\) y \(s=3.9\). Construye un IC del 95% para \(\mu\) y comenta el error de usar \(z\).</p>
+</div><div class="card"><a id="q9"></a><h3>Q9 · Diferencia de proporciones</h3>
+<p><strong>Q9 (Test de dos proporciones).</strong> Grupo A: 148 éxitos de 2000; Grupo B: 191 de 2100. Contrasta \(H_0: p_A=p_B\) vs \(H_1: p_A\ne p_B\) al 5% y comenta la corrección por continuidad.</p>
+</div><div class="card"><a id="q10"></a><h3>Q10 · Bayes para PPV</h3>
+<p><strong>Q10 (Bayes y PPV).</strong> Sensibilidad 0.92, especificidad 0.96, prevalencia 1.5%. Calcula el PPV y discute.</p>
+</div>
+  <footer>Lee con cuidado: hay “trampas” de escalas, dominios y supuestos.</footer>
+</div>
+</body>
+</html>
